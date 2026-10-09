@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"com\/api\/automation\/getRequest[1:6]","start":1778821387411,"end":1778821390554,"title":"com\/api\/automation\/getRequest[1:6] 10:33:07.411-10:33:10.554 To get the tags from the application"},{"id":2,"group":1,"content":"com\/api\/automation\/getRequest[2:19]","start":1778821390570,"end":1778821391953,"title":"com\/api\/automation\/getRequest[2:19] 10:33:10.570-10:33:11.953 To get 10 records from the application"},{"id":3,"group":1,"content":"com\/api\/automation\/getRequest[3:33]","start":1778821391965,"end":1778821393832,"title":"com\/api\/automation\/getRequest[3:33] 10:33:11.965-10:33:13.832 Create and get record"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
